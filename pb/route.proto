@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package pb;
+
+import "google/api/annotations.proto";
+
+message RouteRequest {
+    string from = 1;
+    string to = 2;
+    string time = 3;
+}
+
+message RouteResponse {
+    string message = 1;
+}
+
+service HWService {
+    rpc GetRoute(RouteRequest) returns (RouteResponse) {
+        option (google.api.http) = {
+            get: "/route"
+        };
+    }
+}
