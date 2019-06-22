@@ -1,0 +1,49 @@
+{
+  "train": {
+    "NS": {
+      "peak": 12,
+      "night": 10,
+      "normal": 10
+    },
+    "EW": {
+      "peak": 10,
+      "night": 10,
+      "normal": 10
+    },
+    "CG": {
+      "peak": 10,
+      "night": -1,
+      "normal": 10
+    },
+    "NE": {
+      "peak": 12,
+      "night": 10,
+      "normal": 10
+    },
+    "CC": {
+      "peak": 10,
+      "night": 10,
+      "normal": 10
+    },
+    "CE": {
+      "peak": 10,
+      "night": -1,
+      "normal": 10
+    },
+    "DT": {
+      "peak": 10,
+      "night": -1,
+      "normal": 8
+    },
+    "TE": {
+      "peak": 10,
+      "night": 8,
+      "normal": 8
+    }
+  },
+  "wait": {
+    "peak": 15,
+    "night": 10,
+    "normal": 10
+  }
+}

@@ -11,10 +11,15 @@ message RouteRequest {
 }
 
 message RouteResponse {
-    string message = 1;
+    string summary = 1;
+    int64 station_travelled = 2;
+    repeated string route = 3;
+    string travel_time = 4;
+    string instruction = 5;
+    string query_time = 6;
 }
 
-service HWService {
+service RouteService {
     rpc GetRoute(RouteRequest) returns (RouteResponse) {
         option (google.api.http) = {
             get: "/route"

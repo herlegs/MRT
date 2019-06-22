@@ -29,14 +29,14 @@ var _ = runtime.String
 var _ = utilities.NewDoubleArray
 
 var (
-	filter_HWService_GetRoute_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_RouteService_GetRoute_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_HWService_GetRoute_0(ctx context.Context, marshaler runtime.Marshaler, client HWServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_RouteService_GetRoute_0(ctx context.Context, marshaler runtime.Marshaler, client RouteServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq RouteRequest
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_HWService_GetRoute_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_RouteService_GetRoute_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -45,9 +45,9 @@ func request_HWService_GetRoute_0(ctx context.Context, marshaler runtime.Marshal
 
 }
 
-// RegisterHWServiceHandlerFromEndpoint is same as RegisterHWServiceHandler but
+// RegisterRouteServiceHandlerFromEndpoint is same as RegisterRouteServiceHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterHWServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterRouteServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
@@ -67,23 +67,23 @@ func RegisterHWServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.Serv
 		}()
 	}()
 
-	return RegisterHWServiceHandler(ctx, mux, conn)
+	return RegisterRouteServiceHandler(ctx, mux, conn)
 }
 
-// RegisterHWServiceHandler registers the http handlers for service HWService to "mux".
+// RegisterRouteServiceHandler registers the http handlers for service RouteService to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterHWServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterHWServiceHandlerClient(ctx, mux, NewHWServiceClient(conn))
+func RegisterRouteServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterRouteServiceHandlerClient(ctx, mux, NewRouteServiceClient(conn))
 }
 
-// RegisterHWServiceHandler registers the http handlers for service HWService to "mux".
-// The handlers forward requests to the grpc endpoint over the given implementation of "HWServiceClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "HWServiceClient"
+// RegisterRouteServiceHandler registers the http handlers for service RouteService to "mux".
+// The handlers forward requests to the grpc endpoint over the given implementation of "RouteServiceClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "RouteServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "HWServiceClient" to call the correct interceptors.
-func RegisterHWServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client HWServiceClient) error {
+// "RouteServiceClient" to call the correct interceptors.
+func RegisterRouteServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client RouteServiceClient) error {
 
-	mux.Handle("GET", pattern_HWService_GetRoute_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_RouteService_GetRoute_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		if cn, ok := w.(http.CloseNotifier); ok {
@@ -101,14 +101,14 @@ func RegisterHWServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, 
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_HWService_GetRoute_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_RouteService_GetRoute_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_HWService_GetRoute_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_RouteService_GetRoute_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -116,9 +116,9 @@ func RegisterHWServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, 
 }
 
 var (
-	pattern_HWService_GetRoute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"route"}, ""))
+	pattern_RouteService_GetRoute_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"route"}, ""))
 )
 
 var (
-	forward_HWService_GetRoute_0 = runtime.ForwardResponseMessage
+	forward_RouteService_GetRoute_0 = runtime.ForwardResponseMessage
 )
