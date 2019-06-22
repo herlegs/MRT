@@ -6,13 +6,13 @@ Usage guide:
 * assume Go is already installed, and environment variables has been set ($GOPATH)
 
 * run command to fetch repo if any dependencies is missing
->>go get -u github.com/herlegs/MRT
+>go get -u github.com/herlegs/MRT
 
-* under the code folder, run ~go run main.go~ to start server
+* under the code folder, run _go run main.go_ to start server
 
 * open another terminal, use curl to test the server:
 
->> curl http://localhost:8080/route?from=hollandvillage&to=Bugis&time=2019-06-22T15:30
+> curl http://localhost:8080/route?from=hollandvillage&to=Bugis&time=2019-06-22T15:30
 
 Note:
 

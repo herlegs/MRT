@@ -47,26 +47,3 @@ type TrafficCost struct {
 	// wait train, by Mode (since there is no requirement by line yet)
 	Wait map[Mode]int `json:"wait"`
 }
-
-//// Line is a MRT line
-//type Line struct {
-//	// map of station on the line and their index
-//	StationIndexMap map[*Station]int
-//	// all the exchange stations on the line
-//	ExchangeStations map[*Station]bool
-//}
-//
-//// GetCost of two station if and only if they are on same line
-//func (l *Line) GetCost(from, to *Station, cost *TrafficCost, mode Mode) int {
-//	fromIdx, fromExist := l.StationIndexMap[from]
-//	toIdx, toExist := l.StationIndexMap[to]
-//	if !fromExist || !toExist {
-//		return NotReachable
-//	}
-//	return Abs(fromIdx-toIdx) * cost.Train[from.Line][mode]
-//}
-//
-//type TransportGraph struct {
-//	// map of all lines by line name
-//	lines map[string]*Line
-//}
